@@ -1,0 +1,18 @@
+Node * insert(Node * root,int key)
+{
+if(root==NULL)
+{
+Node * temp=new Node;
+temp->left=NULL;
+temp->right=NULL;
+temp->data=key;
+}
+if(key<root->data)
+{
+root->left=insert(root->left,key);
+}
+else{
+root->right=insert(root->right,key);
+}
+return root;
+}

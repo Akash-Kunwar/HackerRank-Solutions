@@ -1,0 +1,26 @@
+n=int(input())
+l1=set(map(int,input().strip().split(' ')))
+m=int(input())
+l2=set(map(int,input().strip().split(' ')))
+d1=l1.difference(l2);
+d2=l2.difference(l1);
+l=[]
+for i in d1:
+    l.append(i)
+for i in d2:
+    l.append(i)
+l.sort()
+for i in l:
+    print(i)
+
+
+sample input
+4
+2 4 5 9
+4
+2 4 11 12
+sample output
+5
+9
+11
+12

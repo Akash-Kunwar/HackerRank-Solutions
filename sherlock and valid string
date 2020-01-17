@@ -1,0 +1,76 @@
+Sample Input 0
+
+aabbcd
+Sample Output 0
+
+NO
+Explanation 0
+
+Given , we would need to remove two characters, both c and d  aabb or a and b  abcd, to make it valid. We are limited to removing only one character, so  is invalid.
+
+
+
+
+link-https://www.hackerrank.com/challenges/sherlock-and-valid-string/problem?h_l=interview&playlist_slugs%5B%5D=interview-preparation-kit&playlist_slugs%5B%5D=strings
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+#!/bin/python3
+
+import math
+import os
+import random
+import re
+import sys
+
+# Complete the isValid function below.
+def isValid(s):
+    d={}
+    for i in s:
+        if i in d.keys():
+            d[i]+=1
+        else:
+            d[i]=1
+    a=[]
+    for i in d.values():
+        a.append(i)
+    term=-1
+    for i in range(len(a)-1):
+        j=i+1
+        if (a[i]!=a[j] and term>=0):
+            return "NO"
+        if (a[i]!=a[j] and term<0):
+            a[j]-=1
+            term+=1
+        
+    return "YES"
+        
+
+    
+
+if __name__ == '__main__':
+    fptr = open(os.environ['OUTPUT_PATH'], 'w')
+
+    s = input()
+
+    result = isValid(s)
+
+    fptr.write(result + '\n')
+
+    fptr.close()

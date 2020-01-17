@@ -1,0 +1,16 @@
+def maximumToys(prices, k):
+    prices.sort()
+    count=0
+    s=0
+    for i in prices:
+        if s < k:
+            s+=i
+            count+=1
+            if s>k:
+                s-=i
+                count-=1
+    return count
+
+
+
+https://www.hackerrank.com/challenges/mark-and-toys/problem?h_l=interview&playlist_slugs%5B%5D=interview-preparation-kit&playlist_slugs%5B%5D=sorting

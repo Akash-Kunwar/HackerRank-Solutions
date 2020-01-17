@@ -1,0 +1,25 @@
+Sample Input
+
+5 4
+1 2 3 4 5
+Sample Output
+
+5 1 2 3 4
+
+formula to be used:
+  int newloc=(i+No_of_loc)%Array.Length;
+  
+  
+    // Complete the rotLeft function below.
+    static int[] rotLeft(int[] a, int d) {
+        int arraylength=a.length;
+        int [] res=new int[arraylength];
+
+        for(int i=0;i<arraylength;i++){
+           int newloc=(i+d)%arraylength;
+           res[i]=a[newloc];
+        }
+        return res;
+
+
+    }

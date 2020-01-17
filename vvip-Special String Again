@@ -1,0 +1,103 @@
+Sample Input 2
+
+4
+aaaa
+Sample Output 2
+
+10
+
+
+
+
+#!/bin/python3
+
+import math
+import os
+import random
+import re
+import sys
+
+# Complete the substrCount function below.
+def substrCount(n, s):
+     
+  
+    # store count of special 
+    # Palindromic substring 
+    result = 0; 
+  
+    # it will store the count  
+    # of continues same char 
+    sameChar=[0] * n; 
+  
+    i = 0; 
+  
+    # traverse string character  
+    # from left to right 
+    while (i < n): 
+  
+        # store same character count 
+        sameCharCount = 1; 
+  
+        j = i + 1; 
+  
+        # count smiler character 
+        while (j < n): 
+            if(s[i] != s[j]): 
+                break; 
+            sameCharCount += 1; 
+            j += 1; 
+          
+        # Case : 1 
+        # so total number of substring  
+        # that we can generate are : 
+        # K *( K + 1 ) / 2 
+        # here K is sameCharCount 
+        result += int(sameCharCount * 
+                     (sameCharCount + 1) / 2); 
+  
+        # store current same char  
+        # count in sameChar[] array 
+        sameChar[i] = sameCharCount; 
+  
+        # increment i 
+        i = j; 
+  
+    # Case 2: Count all odd length  
+    # Special Palindromic substring 
+    for j in range(1, n): 
+          
+        # if current character is equal  
+        # to previous one then we assign  
+        # Previous same character count  
+        # to current one 
+        if (s[j] == s[j - 1]): 
+            sameChar[j] = sameChar[j - 1]; 
+  
+        # case 2: odd length 
+        if (j > 0 and j < (n - 1) and 
+           (s[j - 1] == s[j + 1] and 
+            s[j] != s[j - 1])):
+            if(sameChar[j - 1] < sameChar[j + 1]):
+                result += (sameChar[j - 1])
+            else:
+                result += (sameChar[j + 1])  
+  
+    # subtract all single 
+    # length substring 
+    return result; 
+
+if __name__ == '__main__':
+    fptr = open(os.environ['OUTPUT_PATH'], 'w')
+
+    n = int(input())
+
+    s = input()
+
+    result = substrCount(n, s)
+
+    fptr.write(str(result) + '\n')
+
+    fptr.close()
+
+
+https://www.hackerrank.com/challenges/special-palindrome-again/problem?h_l=interview&playlist_slugs%5B%5D=interview-preparation-kit&playlist_slugs%5B%5D=strings

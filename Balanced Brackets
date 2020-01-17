@@ -1,0 +1,53 @@
+Sample Input
+
+3
+{[()]}
+{[(])}
+{{[[(())]]}}
+Sample Output
+
+YES
+NO
+YES
+
+#!/bin/python3
+
+import math
+import os
+import random
+import re
+import sys
+
+# Complete the isBalanced function below.
+def isBalanced(s):
+    op=['{','(','[']
+    cl=['}',')',']']
+    st=[]
+    count=1
+    for i in s:
+        if i in op:
+            st.append(i)
+        elif len(st)>0:
+            l1=cl.index(i)
+            if st[-1] == op[l1]:
+                st.pop()
+            else:
+                count=0
+                break;   
+    if count==1 and len(st)==0:
+        return 'YES'   
+    else:
+        return 'NO'
+if __name__ == '__main__':
+    fptr = open(os.environ['OUTPUT_PATH'], 'w')
+
+    t = int(input())
+
+    for t_itr in range(t):
+        s = input()
+
+        result = isBalanced(s)
+
+        fptr.write(result + '\n')
+
+    fptr.close()

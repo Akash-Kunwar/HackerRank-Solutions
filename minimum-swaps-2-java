@@ -1,0 +1,41 @@
+Algorithm: step1:check if the element at given position is valid eg: arr[i]==i+1, element 1 needs to be present at position 0 step2: if element is not at the correct position find the position of the correct element that needs to be at that place and then swap
+
+the code for the same is:
+
+static int minimumSwaps(int[] arr) {
+              int count=0;
+        for(int i=0;i<arr.length-1;i++){
+           if(arr[i]!=i+1){
+               int j=search(arr,i+1);
+               swap(arr,i,j);
+               count++;
+           }
+        }
+    return count;
+
+    }
+    public static int search(int [] a,int item){
+        for(int i=0;i<a.length;i++){
+            if(a[i]==item){
+                return i;
+                
+            }
+        }
+        return 0;
+    }
+    public static void swap(int [] a,int i,int j){
+        int temp=a[i];
+        a[i]=a[j];
+        a[j]=temp;
+    }
+
+
+
+
+Sample Input 1
+
+5
+2 3 4 1 5
+Sample Output 1
+
+3

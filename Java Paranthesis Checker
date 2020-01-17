@@ -1,0 +1,68 @@
+import java.util.*;
+class Solution{
+    
+    public static void main(String []argh)
+    {
+        Scanner sc = new Scanner(System.in);
+        Hashtable<Character,Integer> open =new Hashtable<Character,Integer>(3);
+        open.put('[',1);
+        open.put('{',2);
+        open.put('(',3);
+        Hashtable<Character,Integer> close =new Hashtable<Character,Integer>(3);
+        close.put(']',1);
+        close.put('}',2);
+        close.put(')',3);
+             
+        while (sc.hasNext()) {
+            String input=sc.next();
+            Stack<Character> st=new Stack<Character>();
+            int count=0;   
+            for(int i=0;i<input.length();i++){
+                
+                char temp=input.charAt(i);
+                if(open.get(temp)!=null){
+                st.push(temp);
+            
+                 }
+                if(close.get(temp)!=null){
+                    
+                  if(st.empty()){
+                    count=1;
+                
+                    break;
+                    }
+                  else{
+                    char c=st.peek();
+                    if(open.get(c)==close.get(temp)){
+                        st.pop();
+                    }
+                    else{
+                        count=1;
+                    
+                        break;
+                    }
+                }
+
+
+
+            }
+            }
+            if(count==0 && st.empty()){
+            System.out.println("true");
+            }    
+            else{
+            System.out.println("false");
+            }
+            
+
+
+
+        }
+        
+
+        
+    }
+}
+
+
+
