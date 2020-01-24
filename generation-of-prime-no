@@ -1,0 +1,33 @@
+n=int(input())
+
+for i in range(n):
+    a=list(map(int,input().split()))
+    
+    for j in range(a[0],a[1]+1):
+        
+        notPrime=0
+        if(j==1):
+            continue
+        for k in range(2,j//2+1):
+            if(j%k==0):
+                notPrime=1
+                break
+            
+        if(notPrime==0):
+            print(j,end=' ')
+    print()
+        
+        
+Input:
+
+2
+
+1 10
+
+3 5
+
+Output:
+
+2 3 5 7
+
+3 5
