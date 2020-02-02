@@ -1,0 +1,46 @@
+test=int(input())
+
+for cases in range(test):
+    s=input()
+    add=0
+    i=0
+    while(i<len(s)):
+        if s[i].isalpha() != True:
+           
+            num=0
+            
+            j=i
+            if(j<len(s)):
+                while(j<len(s) and s[j].isalpha() != True):
+                    num=int(s[j])+num*10
+                    j+=1
+                    
+                i=j
+                add+=num
+                
+                
+                
+        else:
+            i+=1
+    print(add)
+    
+    
+    
+    
+Example:
+Input:
+4
+1abc23
+geeks4geeks
+1abc2x30yz67
+123abc
+
+Output:
+24
+4
+100
+123
+
+Explanation:
+Testcase 1: 1 and 23 are numbers in the string which is added to get the sum as 24.
+Testcase 4: 123 is a single number, so sum is 123.
