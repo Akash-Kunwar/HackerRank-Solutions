@@ -1,0 +1,26 @@
+def wsum(arr,tar):
+    arr.sort()
+    cs=999999
+    for i in range(len(arr)):
+        ptr1=i+1
+        ptr2=len(arr)-1
+        while(ptr1<ptr2):
+            
+            s=arr[i]+arr[ptr1]+arr[ptr2]
+
+
+            if(abs(tar-s)<abs(tar-cs)):
+                cs=s
+                print(arr[i],arr[ptr1],arr[ptr2])
+                
+            if(s<tar):
+                ptr1+=1
+            else:
+                ptr2-=1
+    return cs
+
+print(wsum([-7, 9 ,8 ,3 ,1 ,1],2))
+        
+    
+    output:
+    2
