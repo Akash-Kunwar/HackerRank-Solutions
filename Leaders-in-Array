@@ -1,0 +1,39 @@
+Example:
+Input:
+3
+6
+16 17 4 3 5 2
+5
+1 2 3 4 0
+5
+7 4 5 7 3
+Output:
+17 5 2
+4 0
+7 7 3
+
+
+
+
+
+
+
+
+test=int(input())
+
+for cases in range(test):
+    n=int(input())
+    a=list(map(int,input().split()))
+    l=[]
+    l.append(a[n-1])
+    maximum=a[n-1]
+    for i in range(n-2,-1,-1):
+        if a[i]>=maximum:
+            l.append(a[i])
+            maximum=a[i]
+    l.reverse()
+    for i in l:
+        print(i,end=' ')
+    print()
+            
+            
