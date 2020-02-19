@@ -1,0 +1,53 @@
+Example:
+Input:
+2
+amazon
+azonam
+geeksforgeeks
+geeksgeeksfor
+
+Output:
+1
+0
+
+Explanation:
+Testcase 1: amazon can be rotated anti-clockwise by two places, which will make it as azonam.
+
+Testcase 2: geeksgeeksfor can't be formed by any rotation from the given word geeksforgeeks.
+
+/*package whatever //do not write package name here */
+
+import java.util.*;
+import java.lang.*;
+import java.io.*;
+
+class GFG {
+	public static void main (String[] args) {
+		Scanner sc=new Scanner(System.in);
+		int item=1,count=0;
+		int temp=sc.nextInt();
+		sc.nextLine();
+		for(int t=0;t<temp;t++){
+		    String str1=sc.nextLine();
+		    String str2=sc.nextLine();
+		    String str3=str2+str2;
+		    
+		    int ind=str3.indexOf(str1);
+		    if(ind==2 || ind==str2.length()-2){
+		        System.out.println("1");
+		    }
+		    else{
+		        System.out.println("0");
+        
+		    }
+		    
+		    
+		    
+		    
+		}
+	}
+}
+
+
+
+
