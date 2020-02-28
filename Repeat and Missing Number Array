@@ -1,0 +1,26 @@
+class Solution:
+    # @param A : tuple of integers
+    # @return a list of integers
+    def repeatedNumber(self, A):
+        n=len(A)
+        d={}
+        a=0
+        b=0
+        for i in range(n+1):
+            d[i]=1
+        for i in A:
+            if i in d.keys():
+                d[i]-=1
+        for i in d.keys():
+            if(d[i]<0):
+                a=i
+            if(d[i]==1):
+                b=i
+        return a,b
+                
+            
+Input:[3 1 2 5 3] 
+
+Output:[3, 4] 
+
+A = 3, B = 4
